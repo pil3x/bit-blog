@@ -1,18 +1,18 @@
 import React from 'react';
 import Post from '../../entities/Post.js';
-import Main from '../components/Main/Main.js';
 import posts from '../../shared/posts.js';
+import PostList from '../posts/PostList/PostList.js';
 
 class Home extends React.Component {
     constructor(props) {
         super(props);
 
+        this.listOfPosts = this.loadPosts();
     }
 
     loadPosts() {
-        const allPosts = posts;
-        return allPosts.map(post => {
-            return new Post(post)
+        return posts.map(post => {
+            return new Post(post);
         });
     }
 
@@ -20,7 +20,7 @@ class Home extends React.Component {
         return (
             <>
                 <h2 className="center-align">Posts</h2>
-                <Main listOfPosts={this.loadPosts()} />
+                <PostList listOfPosts={this.listOfPosts} />
             </>
         )
     }

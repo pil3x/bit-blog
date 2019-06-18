@@ -1,19 +1,19 @@
 import React from 'react';
 import authors from '../../shared/authors.js';
 import Author from '../../entities/Author.js';
-import Main from '../components/Main/Main.js'
+import AuthorsList from './AuthorsList/AuthorsList.js';
+// import Main from '../components/Main/Main.js'
 
 
 class Authors extends React.Component {
     constructor(props) {
         super(props);
 
+        this.authors = this.loadAuthors();
     }
 
     loadAuthors() {
-        const allAuthors = authors;
-
-        return allAuthors.map(author => {
+        return authors.map(author => {
             return new Author(author)
         });
     }
@@ -21,8 +21,8 @@ class Authors extends React.Component {
     render() {
         return (
             <>
-                <h2 className="center-align">Authors</h2>
-                <Main listOfAuthors={this.loadAuthors()} />
+                <h2 className="center-align">Authors ({this.authors.length})</h2>
+                <AuthorsList listOfAuthors={this.authors} />
             </>
         )
     }
