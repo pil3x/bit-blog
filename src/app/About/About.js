@@ -2,9 +2,10 @@ import React from 'react';
 
 const About = () => {
     return (
-        <div>
-            About
-        </div>
+        <main>
+            <h2 className="center-align">About</h2>
+            <p></p>
+        </main>
     )
 }
 

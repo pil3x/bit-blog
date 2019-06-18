@@ -1,5 +1,4 @@
 import React from 'react';
-// import PostList from '../posts/PostList/PostList';
 import Post from '../../entities/Post.js';
 import Main from '../components/Main/Main.js';
 import posts from '../../shared/posts.js';
