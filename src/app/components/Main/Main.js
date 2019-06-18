@@ -1,12 +1,11 @@
 import React from 'react';
-import Home from '../../Home/Home.js'
+import PostList from '../../posts/PostList/PostList.js';
 
 const Main = (props) => {
     const { listOfPosts } = props;
     return (
         <main className="container">
-
-            <Home listOfPosts={listOfPosts} />
+            <PostList listOfPosts={listOfPosts} />
         </main>
     )
 }

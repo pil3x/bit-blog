@@ -1,10 +1,11 @@
 import React from 'react';
+import { Route, Switch } from "react-router-dom";
 import './App.css';
 import Header from '../app/components/Header/Header.js';
-import Main from '../app/components/Main/Main.js'
+import Home from '../app/Home/Home.js';
+import About from '../app/About/About.js';
+import Authors from '../app/Authors/Authors.js';
 import Footer from '../app/components/Footer/Footer.js';
-import posts from '../shared/posts.js';
-import Post from '../entities/Post';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,19 +14,15 @@ class App extends React.Component {
 
   }
 
-  loadPosts() {
-    const allPosts = posts;
-    return allPosts.map(post => {
-      return new Post(post)
-    });
-  }
-
   render() {
-    console.log(this.loadPosts());
     return (
       <>
         <Header />
-        <Main listOfPosts={this.loadPosts()} />
+        <Switch>
+          <Route path="/about" component={About} />
+          <Route path="/authors" component={Authors} />
+          <Route path="/" component={Home} />
+        </Switch>
         <Footer />
       </>
     )
