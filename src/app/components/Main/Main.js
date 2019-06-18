@@ -1,9 +1,12 @@
 import React from 'react';
+import Home from '../../Home/Home.js'
 
-const Main = () => {
+const Main = (props) => {
+    const { listOfPosts } = props;
     return (
-        <main>
+        <main className="container">
 
+            <Home listOfPosts={listOfPosts} />
         </main>
     )
 }
