@@ -12,20 +12,24 @@ a {
     color: #333;
 }
 
-.post-list a {
+.post-list a,
+.author-list a {
     display: block;
     box-sizing: border-box;
     transition: background-color .2s ease;
 }
 
-.post-list a:hover {
+.post-list a:hover,
+.author-list a:hover {
     background-color: #f7f1f1;
 }
 
-.post-item {
+.post-item, .author-item {
     padding: 20px;
     box-sizing: border-box;
 }
+
+
 
 .back-link {
     margin-top: 20px;

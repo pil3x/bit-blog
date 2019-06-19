@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { fetchAuthor } from '../../../services/authorService.js';
 
 
@@ -24,7 +23,6 @@ class AuthorSingle extends React.Component {
 
     onClickBack = () => {
         this.props.history.goBack();
-
     }
 
     componentDidMount() {
@@ -33,6 +31,7 @@ class AuthorSingle extends React.Component {
 
     render() {
         const { author } = this.state;
+        console.log(this.props);
         return (
             <>
                 <div className="row back-link">

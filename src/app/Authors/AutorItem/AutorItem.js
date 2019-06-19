@@ -7,7 +7,7 @@ const AuthorItem = (props) => {
     return (
         <>
             <Link to={"/authors/" + authorId}>
-                <div className="section">
+                <div className="author-item section">
                     <h5>{props.author.name}</h5>
                 </div>
                 <div className="divider"></div>
