@@ -1,6 +1,8 @@
 import React from 'react';
 
 const PostSingle = (props) => {
+
+    // const post = 
     return (
         <>
             <h2>{props.match.params.id}</h2>
