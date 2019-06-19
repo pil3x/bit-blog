@@ -1,6 +1,7 @@
 import Post from '../entities/Post';
 const axios = require('axios');
 
+
 const fetchPosts = () => {
     return axios.get('https://jsonplaceholder.typicode.com/posts')
         .then(res => res.data)
@@ -12,4 +13,14 @@ const fetchPosts = () => {
 }
 
 
-export { fetchPosts };
+const fetchPost = (postId) => {
+    return axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+        .then(res => res.data)
+        .then(data => {
+            return new Post(data);
+        })
+}
+
+
+
+export { fetchPosts, fetchPost };

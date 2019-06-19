@@ -1,9 +1,6 @@
 import React from 'react';
-
-import Post from '../../entities/Post.js';
-import posts from '../../shared/posts.js';
 import PostList from '../posts/PostList/PostList.js';
-import { fetchPosts } from '../../services/postServices.js'
+import { fetchPosts, fetchPost } from '../../services/postServices.js'
 
 class Home extends React.Component {
     constructor(props) {
@@ -16,11 +13,12 @@ class Home extends React.Component {
 
     loadPosts() {
         fetchPosts()
-            .then(posts => this.setState({ posts: posts }))
+            .then(posts => this.setState({ posts }))
     }
 
     componentDidMount() {
         this.loadPosts();
+
     }
 
     render() {
