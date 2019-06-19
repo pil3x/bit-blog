@@ -22,10 +22,11 @@ class Home extends React.Component {
     }
 
     render() {
+        const { posts } = this.state;
         return (
             <>
                 <h2 className="center-align">Posts</h2>
-                <PostList listOfPosts={this.state.posts} />
+                <PostList listOfPosts={posts} />
             </>
         )
     }

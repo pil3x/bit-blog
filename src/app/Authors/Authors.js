@@ -1,28 +1,35 @@
 import React from 'react';
-import authors from '../../shared/authors.js';
-import Author from '../../entities/Author.js';
+import { fetchAuthors } from '../../services/authorService.js'
 import AuthorsList from './AuthorsList/AuthorsList.js';
-// import Main from '../components/Main/Main.js'
 
 
 class Authors extends React.Component {
     constructor(props) {
         super(props);
 
-        this.authors = this.loadAuthors();
+        this.state = {
+            authors: []
+        }
     }
 
     loadAuthors() {
-        return authors.map(author => {
-            return new Author(author)
-        });
+        fetchAuthors()
+            .then(response => response.data)
+            .then(data => {
+                return this.setState({ authors: data })
+            })
+    }
+
+    componentDidMount() {
+        this.loadAuthors()
     }
 
     render() {
+        const { authors } = this.state;
         return (
             <>
-                <h2 className="center-align">Authors ({this.authors.length})</h2>
-                <AuthorsList listOfAuthors={this.authors} />
+                <h2 className="center-align">Authors ({authors.length})</h2>
+                <AuthorsList listOfAuthors={authors} />
             </>
         )
     }
