@@ -14,7 +14,6 @@ class Authors extends React.Component {
 
     loadAuthors() {
         fetchAuthors()
-            .then(response => response.data)
             .then(data => {
                 return this.setState({ authors: data })
             })

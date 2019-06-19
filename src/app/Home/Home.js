@@ -13,7 +13,9 @@ class Home extends React.Component {
 
     loadPosts() {
         fetchPosts()
-            .then(posts => this.setState({ posts }))
+            .then(posts => {
+                return this.setState({ posts })
+            })
     }
 
     componentDidMount() {

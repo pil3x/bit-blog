@@ -8,6 +8,7 @@ import PostSingle from '../app/posts/PostSingle/PostSingle.js';
 import Authors from '../app/Authors/Authors.js';
 import Footer from '../app/components/Footer/Footer.js';
 import Main from './components/Main/Main';
+import AuthorSingle from './Authors/AuthorSingle/AuthorSingle';
 
 class App extends React.Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class App extends React.Component {
         <Main>
           <Switch>
             <Route path="/posts/:id" component={PostSingle} />
+            <Route path="/authors/:id" component={AuthorSingle} />
             <Route path="/about" component={About} />
             <Route path="/authors" component={Authors} />
             <Route path="/" component={Home} />

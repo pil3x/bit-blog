@@ -11,3 +11,60 @@ main {
 a {
     color: #333;
 }
+
+.back-link {
+    margin-top: 20px;
+}
+
+.author-info {
+    margin: 0;
+    padding: 50px 0;
+    border-bottom: 1px solid #333;
+}
+
+.author-info:last-child {
+    border: none;
+}
+
+.author-info:last-child h1 {
+    margin: 0 0 1.68rem;
+}
+
+
+
+.back-button {
+    display: inline-block;
+    position: relative;
+    padding: 15px 35px;
+    background-color: #ee6e73;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.back-button span:first-child {
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transition: left .3s ease;
+    -moz-transition: left .3s ease;
+    -o-transition: left .3s ease;
+    transition: left .3s ease;
+}
+
+.back-button:hover span:first-child {
+    left: 20px;
+}
+
+.back-button span:last-child {
+    margin-left: 5px;
+}
+
+.single-holder .author-name > a {
+    color: #ee6e73;
+}

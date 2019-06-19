@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { fetchAuthor } from '../../../services/authorService.js';
 import { fetchPost } from '../../../services/postServices';
 
 
@@ -8,16 +9,31 @@ class PostSingle extends React.Component {
         super(props);
 
         this.state = {
-            post: {}
+            post: {},
+            author: {}
         }
     }
 
     loadPost() {
         const postId = this.props.match.params.id;
+
         fetchPost(postId)
             .then(post => {
-                return this.setState({ post: post })
+                this.setState({ post })
+                this.loadAuthorData(post.authorId);
             })
+    }
+
+    loadAuthorData(id) {
+        fetchAuthor(id)
+            .then(author => {
+                this.setState({ author })
+            })
+    }
+
+    onClickBack = () => {
+        this.props.history.goBack();
+
     }
 
     componentDidMount() {
@@ -25,12 +41,27 @@ class PostSingle extends React.Component {
     }
 
     render() {
+        const { post, author } = this.state;
+
+
         return (
-            <div className="center-align">
-                <h2>{this.state.post.title}</h2>
-                <Link to="/authors">Author Name</Link>
-                <p>{this.state.post.body}</p>
-            </div>
+            <>
+                <div className="row back-link">
+                    <div className="col s12">
+                        <div className="back-button" onClick={this.onClickBack}>
+                            <span className="fas fa-chevron-left"></span>
+                            <span>Back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="single-holder center-align">
+                    <h2>{post.title}</h2>
+                    <h4 className="author-name"><Link to={"/authors/" + post.authorId}>{author.name}</Link></h4>
+                    <p>{post.body}</p>
+                </div>
+            </>
+
         )
     }
 }

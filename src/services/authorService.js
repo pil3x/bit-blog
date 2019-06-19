@@ -12,4 +12,15 @@ const fetchAuthors = () => {
         })
 }
 
-export { fetchAuthors }
+
+
+const fetchAuthor = (authorId) => {
+    return axios.get(`https://jsonplaceholder.typicode.com/users/${authorId}`)
+        .then(res => res.data)
+        .then(data => {
+            return new Author(data);
+        })
+}
+
+
+export { fetchAuthors, fetchAuthor }
