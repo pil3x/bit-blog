@@ -6,7 +6,6 @@ const fetchPosts = () => {
     return axios.get('https://jsonplaceholder.typicode.com/posts')
         .then(res => res.data)
         .then(data => {
-            console.log(data);
             return data.map(post => {
                 return new Post(post);
             })
@@ -22,6 +21,16 @@ const fetchPost = (postId) => {
         })
 }
 
+const fetchRelatedPosts = (postId) => {
+    return axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${postId}`)
+        .then(response => response.data)
+        .then(data => {
+            return data.map(post => {
+                return new Post(post)
+            })
+        })
+}
 
 
-export { fetchPosts, fetchPost };
+
+export { fetchPosts, fetchPost, fetchRelatedPosts };

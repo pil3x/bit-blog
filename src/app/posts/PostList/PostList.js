@@ -5,7 +5,7 @@ import PostItem from '../PostItem/PostItem.js';
 const PostList = (props) => {
     return (
         <>
-            <div className="row">
+            <div className="post-list row">
                 {props.listOfPosts.map((post, index) => {
                     return <PostItem key={index} post={post} />
                 })}

@@ -12,6 +12,21 @@ a {
     color: #333;
 }
 
+.post-list a {
+    display: block;
+    box-sizing: border-box;
+    transition: background-color .2s ease;
+}
+
+.post-list a:hover {
+    background-color: #f7f1f1;
+}
+
+.post-item {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
 .back-link {
     margin-top: 20px;
 }
@@ -29,8 +44,6 @@ a {
 .author-info:last-child h1 {
     margin: 0 0 1.68rem;
 }
-
-
 
 .back-button {
     display: inline-block;
@@ -63,6 +76,11 @@ a {
 
 .back-button span:last-child {
     margin-left: 5px;
+}
+
+.single-holder {
+    padding: 20px 0 50px;
+    border-bottom: 1px solid #333; 
 }
 
 .single-holder .author-name > a {

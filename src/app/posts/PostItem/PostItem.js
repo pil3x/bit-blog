@@ -7,7 +7,7 @@ const PostItem = (props) => {
     // console.log(postID);
     return (
         <Link to={"/posts/" + postID}>
-            <div className="section">
+            <div className="post-item section">
                 <h5>{props.post.title}</h5>
                 <p>{props.post.body}</p>
             </div>
