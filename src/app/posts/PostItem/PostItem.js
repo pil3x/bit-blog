@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import AuthorName from '../../Authors/AuthorName/AuthorName';
+import Comments from '../../Comments/Comments.js'
 
 
 const PostItem = (props) => {
@@ -16,7 +17,7 @@ const PostItem = (props) => {
 
             </Link>
             <AuthorName authorId={props.post.authorId} />
-
+            <Comments postId={postID} />
         </div>
     )
 }
