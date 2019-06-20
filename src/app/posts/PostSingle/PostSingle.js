@@ -1,16 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { fetchAuthor } from '../../../services/authorService.js';
 import { fetchPost, fetchRelatedPosts } from '../../../services/postServices';
-
+import RelatedPosts from '../RelatedPosts/RelatedPosts.js';
+import AuthorName from '../../Authors/AuthorName/AuthorName.js';
 
 class PostSingle extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            post: {},
-            author: {},
+            post: null,
             relatedPosts: []
         }
     }
@@ -21,28 +19,22 @@ class PostSingle extends React.Component {
         fetchPost(postId)
             .then(post => {
                 this.setState({ post })
-                this.loadAuthorData(post.authorId)
                 this.loadRelatedPosts(post.authorId);
-            })
-    }
-
-    loadAuthorData(id) {
-        fetchAuthor(id)
-            .then(author => {
-                this.setState({ author })
             })
     }
 
     loadRelatedPosts(id) {
         fetchRelatedPosts(id)
             .then(posts => {
-                this.setState({ relatedPosts: posts })
+                const id = this.props.match.params.id;
+                const currentPost = Number.parseInt(id);
+                const relatedPosts = posts.filter(post => post.id !== currentPost);
+                this.setState({ relatedPosts })
             })
     }
 
     onClickBack = () => {
         this.props.history.goBack();
-
     }
 
     componentDidMount() {
@@ -57,7 +49,11 @@ class PostSingle extends React.Component {
     }
 
     render() {
-        const { post, author } = this.state;
+        const { post, relatedPosts } = this.state;
+        if (!post) {
+            return <p>Loading posts</p>
+        }
+
         return (
             <>
                 <div className="row back-link">
@@ -68,31 +64,15 @@ class PostSingle extends React.Component {
                         </div>
                     </div>
                 </div>
-
                 <div className="single-holder center-align">
                     <h2>{post.title}</h2>
-                    <h4 className="author-name"><Link to={"/authors/" + post.authorId}>{author.name}</Link></h4>
+                    {post && <AuthorName authorId={post.authorId} />}
+                    {/* <h4 className="author-name"><Link to={"/authors/" + post.authorId}>{author.name}</Link></h4> */}
                     <p>{post.body}</p>
                 </div>
-                <div>
-                    <h4>{this.state.relatedPosts.length} more posts from same author</h4>
-                    {this.state.relatedPosts.map((post, i) => {
-                        return (
-                            <div key={i}>
-                                <Link to={`/posts/${post.id}`}>
-                                    <div>
-                                        <h5>{post.title}</h5>
-                                    </div>
-                                </Link>
-                            </div>
-
-                        )
-                    })}
-                </div>
+                <RelatedPosts relatedPosts={relatedPosts} />
             </>
-
         )
     }
 }
-
 export default PostSingle;

@@ -1,3 +1,7 @@
+::-webkit-scrollbar { 
+    display: none; 
+}
+
 #root {
     display: flex;
     min-height: 100vh;
@@ -12,6 +16,14 @@ a {
     color: #333;
 }
 
+.header-inner > div {
+    margin: 0;
+}
+
+.post-list, .author-list {
+    margin-bottom: 50px;
+}
+
 .post-list a,
 .author-list a {
     display: block;
@@ -19,17 +31,39 @@ a {
     transition: background-color .2s ease;
 }
 
-.post-list a:hover,
+.post-holder {
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color .2s ease;
+}
+
+.post-holder:hover {
+    background-color:  #f7f1f1;
+}
+
+.post-holder .author-name a {
+    color: #ee6e73;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.post-item h5 {
+    text-transform: capitalize;
+}
+
 .author-list a:hover {
     background-color: #f7f1f1;
 }
 
-.post-item, .author-item {
-    padding: 20px;
+.author-item {
+    padding: 20px 0 ;
     box-sizing: border-box;
 }
 
-
+.author-item h5 {
+    margin: 0;
+}
 
 .back-link {
     margin-top: 20px;
@@ -87,6 +121,25 @@ a {
     border-bottom: 1px solid #333; 
 }
 
-.single-holder .author-name > a {
-    color: #ee6e73;
+.single-holder h2 {
+    text-transform: capitalize;
 }
+
+.related-holder {
+    padding: 30px 0 50px;
+}
+
+.related-post a {
+    display: block;
+}
+
+/* a .post-item  h5,
+.related-post a h5{
+    text-transform: capitalize;
+    transition: color .2s ease;
+} */
+
+/* a:hover .post-item  h5,
+.related-post a:hover h5{
+    color: #ee6e73;
+} */

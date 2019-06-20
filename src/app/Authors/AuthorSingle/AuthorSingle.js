@@ -31,7 +31,6 @@ class AuthorSingle extends React.Component {
 
     render() {
         const { author } = this.state;
-        console.log(this.props);
         return (
             <>
                 <div className="row back-link">
@@ -44,7 +43,7 @@ class AuthorSingle extends React.Component {
                 </div>
                 <div className="row author-info">
                     <div className="col s3">
-                        <img src="https://via.placeholder.com/300" />
+                        <img src="https://via.placeholder.com/300" alt="" />
                     </div>
                     <div className="col s9 ">
                         <h1>{author.name}</h1>

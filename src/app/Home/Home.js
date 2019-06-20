@@ -1,6 +1,6 @@
 import React from 'react';
 import PostList from '../posts/PostList/PostList.js';
-import { fetchPosts, fetchPost } from '../../services/postServices.js'
+import { fetchPosts } from '../../services/postServices.js'
 
 class Home extends React.Component {
     constructor(props) {

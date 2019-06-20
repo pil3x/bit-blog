@@ -3,7 +3,7 @@ const axios = require('axios');
 
 
 const fetchPosts = () => {
-    return axios.get('https://jsonplaceholder.typicode.com/posts')
+    return axios.get('https://jsonplaceholder.typicode.com/posts?_limit=30')
         .then(res => res.data)
         .then(data => {
             return data.map(post => {

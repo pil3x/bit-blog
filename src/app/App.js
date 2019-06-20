@@ -11,11 +11,6 @@ import Main from './components/Main/Main';
 import AuthorSingle from './Authors/AuthorSingle/AuthorSingle';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-
-  }
 
   render() {
     return (
